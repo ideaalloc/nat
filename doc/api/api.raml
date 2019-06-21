@@ -52,7 +52,7 @@ securitySchemes:
           description: |
             用户登录授权
           type: string
-          example: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI1YzY2YTk5ZjM4ZjFiMzMyNzRjNDRhNDAiLCJub1Byb2ZpbGUiOnRydWUsImV4cCI6MTU1MTA5NjA1Nn0.or4iRr932rWtRqEwOOMNkO8bCnWncFl9f7eZiYJdnk1WAkxIN8LOubI2gYstxPDJuXJ0Oi9P--vanVqS1w7tUw
+          example: Bearer nebaddress
       responses:
         401:
           description: |
@@ -64,6 +64,16 @@ securitySchemes:
 securedBy: appkey
 uses:
   ApiLib: libraries/api.lib.raml
+
+/misc/ip:
+  get:
+    securedBy: [appkey]
+    description: 获取ip
+    responses:
+      200:
+        body:
+          application/json:
+            type: ApiLib.IPDataResponse
 
 /polls:
   displayName: 投票

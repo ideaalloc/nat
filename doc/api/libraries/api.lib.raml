@@ -2,10 +2,33 @@
 
 types:
 
+  IPDataResponse:
+    type: object
+    properties:
+      code: integer
+      lang:
+        type: string
+        description: |
+          i18n, supports: en, zh
+      message: string
+      debugMessage: string
+      data: IPData
+
+  IPData:
+    type: object
+    properties:
+      ip:
+        type: string
+        description: IP
+
   PollDetailsResponse:
     type: object
     properties:
       code: integer
+      lang:
+        type: string
+        description: |
+          i18n, supports: en, zh
       message: string
       debugMessage: string
       data: PollDetails
@@ -72,6 +95,12 @@ types:
       result:
         type: string
         description: 投票结果
+      creatorName:
+        type: string
+        description: 创建者名称
+      nebAddr:
+        type: string
+        description: neb地址
 
   PollNut:
     type: object
@@ -123,6 +152,10 @@ types:
     type: object
     properties:
       code: integer
+      lang:
+        type: string
+        description: |
+          i18n, supports: en, zh
       message: string
       debugMessage: string
       data: PollNut
