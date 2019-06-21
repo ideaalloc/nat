@@ -1,0 +1,128 @@
+#%RAML 1.0 Library
+
+types:
+
+  PollDetailsResponse:
+    type: object
+    properties:
+      code: integer
+      message: string
+      debugMessage: string
+      data: PollDetails
+
+  PollOptions:
+    type: object
+    properties:
+      id:
+        type: string
+        description: 选项id
+      name:
+        type: string
+        description: 选项名称
+      goal:
+        type: number
+        description: 目标价值
+      progress:
+        type: number
+        description: 完成率
+
+  PollDetails:
+    type: object
+    properties:
+      id:
+        type: string
+        description: 投票id
+      title:
+        type: string
+        description: 标题
+      startTime:
+        type: datetime-only
+        description: |
+          开始时间
+      endTime:
+        type: datetime-only
+        description: |
+          结束时间
+      description:
+        type: string
+        description: 描述
+      pollCategory:
+        type: integer
+        minimum: 1
+        maximum: 4
+        description: |
+          投票类目, 1: 社区投票; 2: 理事会投票; 3: 基金会投票; 4: 技术委员会投票;
+      pollStatus:
+        type: integer
+        minimum: 1
+        maximum: 3
+        description: |
+          投票状态, 1: 即将开始; 2: 进行中; 3: 已经结束;
+      pollStick:
+        type: boolean
+        description: |
+          是否置顶
+      pollOptions:
+        type: array
+        items: PollOptions
+        description: 投票选项
+      polled:
+        type: boolean
+        description: 是否已投票
+      result:
+        type: string
+        description: 投票结果
+
+  PollNut:
+    type: object
+    properties:
+      id:
+        type: string
+        description: 投票id
+      title:
+        type: string
+        description: 标题
+      startTime:
+        type: datetime-only
+        description: |
+          开始时间
+      endTime:
+        type: datetime-only
+        description: |
+          结束时间
+      description:
+        type: string
+        description: 描述
+      pollCategory:
+        type: integer
+        minimum: 1
+        maximum: 4
+        description: |
+          投票类目, 1: 社区投票; 2: 理事会投票; 3: 基金会投票; 4: 技术委员会投票;
+      pollStatus:
+        type: integer
+        minimum: 1
+        maximum: 3
+        description: |
+          投票状态, 1: 即将开始; 2: 进行中; 3: 已经结束;
+      pollStick:
+        type: boolean
+        description: |
+          是否置顶
+    example:
+      id: a2b73922803
+      title: 投票标题
+      startTime: 2019-06-21T15:32:00
+      endTime: 2019-06-24T15:32:00
+      description: 投票描述
+      pollCategory: 1
+      pollStatus: 2
+      pollStick: true
+
+  PollNutResponse:
+    type: object
+    properties:
+      code: integer
+      message: string
+      debugMessage: string
+      data: PollNut
